@@ -25,28 +25,32 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html"><h6>Financial Literacy Hub</h6></a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#Our-Programs-section" class="nav-link"><span>Our Programs</span></a></li>
-	          <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
-	          <li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-	        </ul>
-	      </div>
-	    </div>
+		<div class="container">
+		  <a class="navbar-brand" href="index.html">
+			<h5>Financial Literacy Hub</h5>
+		  </a>
+		  <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleMenu(this)">
+			<span class="fas fa-bars" style="font-size: 24px;"></span>
+		  </button>
+	  
+		  <div class="collapse navbar-collapse" id="ftco-nav">
+			<ul class="navbar-nav nav ml-auto">
+			  <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+			  <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+			  <li class="nav-item"><a href="#Our-Programs-section" class="nav-link"><span>Our Programs</span></a></li>
+			  <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
+			  <li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>
+			  <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+			</ul>
+		  </div>
+		</div>
 	  </nav>
 	  <section id="home-section" class="hero">
 		  <div class="home-slider  owl-carousel">
@@ -116,7 +120,9 @@
 	                <span class="number" data-number="120">0</span>
 	                <span>Talks Held</span>
                 </p>
-                <p><a href="#" class="btn btn-primary py-3 px-3">Download Our Portfolio</a></p>
+                <p>
+					<a href="https://moneyandyouth.com/wp-content/uploads/2018/11/Money-Youth-2018-EN.pdf" class="btn btn-primary py-4 px-5" target="_blank" rel="noopener noreferrer">Download Our Portfolio</a>
+				  </p>
               </div>
 	          </div>
 	        </div>
@@ -164,10 +170,12 @@
     			</div>
     		</div>
     		<div class="row justify-content-center mt-5">
-    			<div class="col-md-6 text-center ftco-animate">
-    				<p><a href="#" class="btn btn-primary py-4 px-5">Download Templates</a></p>
-    			</div>
-    		</div>
+				<div class="col-md-6 text-center ftco-animate">
+				  <p>
+					<a href="https://moneyandyouth.com/wp-content/uploads/2018/11/Money-Youth-2018-EN.pdf" class="btn btn-primary py-4 px-5" target="_blank" rel="noopener noreferrer">Download Templates</a>
+				  </p>
+				</div>
+			  </div>
     	</div>
     <section class="ftco-section ftco-project" id="projects-section">
     	<div class="container">
@@ -423,31 +431,30 @@
 
 		<h3 class="mb-4">Leave A Message</h3>
         <div class="row no-gutters block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-light p-4 p-md-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-          
-          </div>
-
-          <div class="col-md-6 d-flex">
-          	<div class="img" style="background-image: url(images/about.jpg);"></div>
-          </div>
-        </div>
+			<div class="col-md-6 order-md-last d-flex">
+			  <form action="#" class="bg-light p-4 p-md-5 contact-form" onsubmit="sendMessage(event)">
+				<div class="form-group">
+				  <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+				</div>
+				<div class="form-group">
+				  <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+				</div>
+				<div class="form-group">
+				  <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+				</div>
+				<div class="form-group">
+				  <textarea id="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
+				</div>
+				<div class="form-group">
+				  <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+				</div>
+			  </form>
+			</div>
+		  
+			<div class="col-md-6 d-flex">
+			  <div class="img" style="background-image: url(images/about.jpg);"></div>
+			</div>
+		  </div>
       </div>
     </section>
 	<section style="text-align: center; padding: 40px;">
@@ -468,7 +475,7 @@
 		  </p>
 		  <p style="font-weight: bold;">— Peter Kaluma</p>
 		</div>
-	</section>	
+	</section>	  
     <footer class="ftco-footer ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -476,7 +483,7 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">About</h2>
               <p>Your Financial Advisers in the current market trends of our evolving world.</p>
-		<p>Together, let's build a financially literate community!</p>
+			  <p>Together, let's build a financially literate community!</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -540,6 +547,15 @@
           </div>
         </div>
       </div>
+	  <a href="https://wa.me/254103003189" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; font-size: 24px; z-index: 1000; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);">
+		<i class="fab fa-whatsapp"></i>
+	  </a>
+	  
+	  <!-- Make sure Font Awesome is linked -->
+	  <head>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	  </head>
+	  
     </footer>
     
   
@@ -563,5 +579,39 @@
   
   <script src="js/main.js"></script>
     
+<script>
+  function toggleMenu(button) {
+    var icon = button.querySelector('span');
+    if (icon.classList.contains('fa-bars')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times'); // Change to "X" icon
+    } else {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars'); // Change back to hamburger
+    }
+  }
+</script>
+
+<script>
+	function sendMessage(event) {
+	  event.preventDefault(); // Prevent the form from refreshing the page
+  
+	  // Get form values
+	  const name = document.getElementById('name').value;
+	  const email = document.getElementById('email').value;
+	  const subject = document.getElementById('subject').value;
+	  const message = document.getElementById('message').value;
+  
+	  // Construct the WhatsApp message (encodeURI to make sure the message format is URL safe)
+	  const whatsappMessage = encodeURI(`Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`);
+  
+	  // WhatsApp link with the pre-filled message and phone number
+	  const whatsappUrl = `https://wa.me/254103003189?text=${whatsappMessage}`;
+  
+	  // Redirect to WhatsApp
+	  window.open(whatsappUrl, '_blank');
+	}
+  </script>
+
   </body>
 </html>
